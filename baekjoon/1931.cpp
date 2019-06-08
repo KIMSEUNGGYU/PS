@@ -1,59 +1,53 @@
 /*
-time ë²¡í„°ë¥¼ ë§Œë“¤ì–´ì„œ ëª¨ë‘ 0ìœ¼ë¡œ ì´ˆê¸°í™”
-í•´ë‹¹ ê°’ì´ 1ë¡œ ë˜ì–´ ìˆìœ¼ë©´ ê·¸ ì‹œê°„ì— íšŒì˜ì‹¤ì„ ì´ìš©ì¤‘ ë˜ëŠ” ì´ìš©í•¨
-0ì´ë©´ ì´ìš©í•  ìˆ˜ ìˆìŒ
-
-pairë¡œ ì…ë ¥ë°›ê³ , ê·¸ ë²”ìœ„ ì•ˆì— time ë²¡í„° ê°’ì´ ëª¨ë‘ 0ì´ë©´ cntë¥¼ ì¦ê°€ì‹œí‚¤ê³  
-í•´ë‹¹ timeì˜ ë²”ìœ„ë§Œí¼ 1ë¡œ ëª¨ë‘ ë³€ê²½
+- È¸ÀÇ°¡ ³¡³ª´Â ½Ã°£ÀÌ ºü¸¦¼ö·Ï ¸¹Àº È¸ÀÇµéÀ» ÇÒ ¼ö ÀÖÀ½! 
+  ±×·¡¼­ Á¤·ÄÇÏ´Â ±âÁØÀ» end ·Î ÀâÀ½! 
+- end ½Ã°£ÀÌ °°À»¶§ start ¸¦ ¿À¸§Â÷¼øÀ¸·Î Á¤·Ä! 
+½ÃÀÛ ½Ã°£¼øÀ¸·Î Á¤·ÄÀÌ µÇ¾îÀÖÁö ¾Ê´Ù°í ÇÒ ¶§, 
+È¸ÀÇ A°¡ (K,K)ÀÌ°í, È¸ÀÇ B°¡(N,K)(N<K) ¶ó°í ÇÒ ¶§, 
+È¸ÀÇ A°¡ ¸ÕÀú ÁøÇàµÇ¸é È¸ÀÇ B->A¸¦ ÁøÇàÇÒ ¼ö ÀÖ¾úÀ½¿¡µµ È¸ÀÇ A¸¸ ÁøÇàÇÏ°Ô µÇÁö ¾ÊÀ»±î¿ä?
+Áï, A: 8->8 ÀÌ°í B:7->8 ÀÏ¶§ B°¡ ¸ÕÀú ¼öÇàÇÏ°í A°¡ ¼öÇàµÉ ¼öÀÖ´Âµ¥
+°°À»¶§ start ¼øÀ¸·Î Á¤·ÄÇÏÁö ¾ÊÀ¸¸é ´Ù¸¥ °æ¿ì¸¦ °í·ÁÇÏ´Â °æ¿ì°¡ ¾øÀ» ¼öÀÖ´Ù.(A¹ø¸¸ °í·ÁÇÒ °æ¿ì ¹ß»ı)
 */
 
 #include <iostream>
-#include <vector>
+#include <algorithm>
 using namespace std;
 
+struct Time {
+	int start, end;
+};
+
+bool compare(const Time &a, const Time &b) { 
+    if(a.end == b.end) return a.start < b.start;
+    else return a.end < b.end;
+} 
+
 int main() {
-	pair<int, int> p;
-	bool flag = true;
-	int cnt = 0;
-	int N;
-	cin >> N;
-
-	vector<long long> time(N+1, 0);
-	while(N--) {
-		int from, to;
-		cin >> from >> to;
-
-		flag = true;
-		for(int i=from; i<=to; i++) {
-			if(time[i]==1) {
-				flag = false;
-				break;
-			}
-		}
-
-		if(flag == true) {
-			for(int i=from; i<=to; i++) time[i] =1;
-			cnt++;
-		}
-
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	
+	Time arr[100010];
+	int check[100010];
+	int n;
+	cin >> n;
+	int from, to;
+	for(int i=0; i<n; i++) {
+		cin >> arr[i].start >> arr[i].end;
 	}
-
-	cout << cnt << "\n";
+	
+	sort(arr, arr+n, compare);
+	
+	int cnt = 0;
+	int now = 0;
+	
+	for(int i=0; i<n; i++) {
+		if(now <= arr[i].start) {
+			now = arr[i].end;
+			cnt++;	
+		}
+	}
+	
+	cout << cnt <<"\n";
 
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-/*
-ì‹¤ìˆ˜(ìƒê°ì§€ ëª»í•œ ë¶€ë¶„)
-- ë‚œ ì…ë ¥ ë°›ì€ ìˆœì„œëŒ€ë¡œ ì²˜ë¦¬í–ˆëŠ”ë° ë§Œì•½ ì²«ë²ˆì§¸ ì£¼ì–´ì§„ ìˆ«ìê°€ ëª¨ë“  ì²˜ìŒë¶€í„° ëê¹Œì§€ë¼ë©´ 
-ë‹¨ í•œë²ˆë§Œ ì‘ë™í•œë‹¤. í•´ë‹¹ ë¶€ë¶„ì€ ìµœëŒ€ë¡œ êµ¬í•  ìˆ˜ ìˆëŠ” ë°©ë²•ì„ ë¬¼ì–´ë³´ê¸° ë•Œë¬¸ì— ì…ë ¥ë°›ì€ ìˆœì„œëŒ€ë¡œ í•˜ë©´ ì•ˆë¨
-
-*/
