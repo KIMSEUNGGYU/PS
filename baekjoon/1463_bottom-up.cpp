@@ -1,20 +1,28 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-const int MAX = 10000001;
-int d[MAX];
+int dp[1000001];		// 1로 만드는 최소 연산 횟수
+
 int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	
 	int n;
 	cin >> n;
 
-	d[1] = 0;
+	// 예외 처리
+	dp[1] = 0;
 
+	// bottom-up 방식
 	for(int i=2; i<=n; i++) {
-		d[i] = d[i-1]+1;
-		if(i%2==0 && d[i] > d[i/2]+1) d[i] = d[i/2] +1;
-		if(i%3==0 && d[i] > d[i/3]+1) d[i] = d[i/3] +1;
+		// "-1" 연산
+		dp[i] = dp[i-1]+1;
+
+		// "/2" 연산
+		if(i%2==0 && dp[i]>dp[n/2]+1) dp[i] = dp[n/2]+1;
+
+		// "/3" 연산
+		if(i%3==0 && dp[i]>dp[n/3]+1) dp[i] = dp[n/3]+1;
 	}
 
-	printf("%d\n", d[n]);
-	
-	return 0;	
+	cout << dp[n] << "\n";
 }
