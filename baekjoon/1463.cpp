@@ -1,7 +1,3 @@
-/*
-실수 
-주어진 범위가 10^6 으로 백만의 공간(dp)이 필요한데 난 10^5의 공간만 줌!
-*/
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -25,13 +21,14 @@ int go(int n) {
 	} 
 
 	// "/2" 연산
-	if(n%3==0) {
+	if(n%2==0) {
 		int temp = go(n/2)+1;
 		if(dp[n] > temp) dp[n] = temp;
 	} 
 
 	return dp[n];
 }
+
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
@@ -43,4 +40,3 @@ int main() {
 	
 	return 0;
 }
- 
