@@ -1,6 +1,6 @@
-#include <iostream>
+#include <iostream> 
 using namespace std;
-
+ 
 int main() {
 	cout << "|\\_/|\n";
 	cout << "|q p|   /}\n";
