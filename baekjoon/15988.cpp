@@ -1,25 +1,35 @@
-#include <iostream>
+/*
+- dp 정의
+  dp[i]: i를 1, 2, 3 의 합으로 나타낼 수 있는 방법의 수. 단, 1000000009 으로 나눈 값
+- 식 정의
+  dp[i] = dp[i-1]+dp[i-2]+dp[i-3]
+*/
+
+#include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 1000001;
-long long d[MAX];		// n을 1, 2, 3의 합으로 나타내는 방법의 수
+unsigned int dp[1000001];
+
 int main() {
-	d[0] = 1;
-	for(int i=1; i<=1000000; i++) {
-		if(i-1>=0) d[i] += d[i-1];
-		if(i-2>=0) d[i] += d[i-2];
-		if(i-3>=0) d[i] += d[i-3];
+	ios::sync_with_stdio(0);
+	cin.tie(0);
 
-		d[i] %= 1000000009;
-	}	
+	dp[0] = 1;
+	dp[1] = 1;
+	dp[2] = 2;
 
-	int t;
-	scanf("%d", &t);
-	while(t--) {
-		int n;
-		scanf("%d", &n);
-		printf("%d\n", d[n]);
+	for(int i=3; i<=1000000; i++) {
+		dp[i] = (dp[i-1]+dp[i-2]+dp[i-3]) % 1000000009;
 	}
-	
+
+	int n;
+	cin >> n;
+
+	while(n--) {
+		int x;
+		cin >> x;
+		cout << dp[x] << "\n";
+	}
+
 	return 0;
 }
