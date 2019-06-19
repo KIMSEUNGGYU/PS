@@ -1,21 +1,25 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
+	// 입력 효율적 처리 부분 없으면 시간 초과 나옴 
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	
 	int n;
-	vector<int> v;
-	scanf("%d", &n);
-
+	int numbers[10001] = {0, };
+	int number;
+	cin >> n;
 	for(int i=0; i<n; i++) {
-		int x;
-		scanf("%d", &x);
-		v.push_back(x);
+		cin >> number;
+		numbers[number]++;
 	}
-
-	sort(v.begin(), v.end());
-
-	for(auto x:v) printf("%d\n", x);
-
+	
+	for(int i=1; i<10001; i++) {
+		for(int j=0; j<numbers[i]; j++) {
+			cout << i << "\n";
+		}
+	}
+	
 	return 0;
 }
