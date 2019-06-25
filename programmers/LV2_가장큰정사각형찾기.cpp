@@ -1,36 +1,40 @@
 #include <bits/stdc++.h>
-using namespace std;
+using namespace std; 
 
-// 각 수포자 찍는 패턴 저장 
-vector<int> supo1 = {1, 2, 3, 4, 5};
-vector<int> supo2 = {2, 1, 2, 3, 2, 4, 2, 5};
-vector<int> supo3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
+int dp[1001][1001]; // 정사각형 길이
 
-vector<int> solution(vector<int> answers) {
+int solution(vector<vector<int>> board) {
+    int answer = 0;
+    int xSize = board.size();
+    int ySize = board[0].size();
     
-    vector<int> answer;         // 정답을 저장할 공간
-    vector<int> score(4);       // 각 수포자가 총 몇개 맞는지 기록 
-                                // 1, 2, 3으로 접근하기 위해 총 4개의 공간할당
-    
-    // 각 수포자의 패턴이 총 몇개로 되어있는지 (후에 반복할때 mod로 1, 2, ... 끝, 1, 2, ..)
-    int supo1Mod = supo1.size();    
-    int supo2Mod = supo2.size();
-    int supo3Mod = supo3.size();
-
-    // 각 문제당 수포자가 몇개 맞았는지 처리
-    for(int i=0; i<answers.size(); i++) {
-        if(answers[i] == supo1[i%supo1Mod]) score[1]++;
-        if(answers[i] == supo2[i%supo2Mod]) score[2]++;
-        if(answers[i] == supo3[i%supo3Mod]) score[3]++;
+    int max = 0;
+  
+  	// 행이 2 미만 또는 열이 2미만이면 아무리커도 최대 1.
+	// 해당 경우에서 1이 하나라도 있으면 1 출력 
+    if(xSize < 2 || ySize < 2) {
+        for(int i=0; i<xSize; i++) {
+            for(int j=0; j<ySize; j++) {
+                if(board[i][j] == 1) max = 1;
+            }
+        }
+    }
+    // 행이 2이상인 경우 dp 를 이용해서 만들 수 있는 정사각형 크기 저장
+	// 1인 값이 있을때만 사각형이 이어지므로 
+	// 좌, 좌상, 상단에 있는 값을 고려해서 정사각형의 길이를 알 수 있음 
+    else {
+        for(int i=1; i<board.size(); i++) {
+            for(int j=1; j<board[i].size(); j++) {
+                if(board[i][j]==1) {
+                    int m = min(board[i][j-1], min(board[i-1][j-1], board[i-1][j]));
+                    board[i][j] = m+1;
+                    if(max < board[i][j]) max = board[i][j];
+                }
+            }
+        }
     }
     
-    // 최대값 찾기
-    int M = max(score[1], max(score[2], score[3]));
+    answer = max*max;
     
-    // 제일 많이 맞는 사람 찾기 및 중복될 경우 오름찬순으로 저장
-    for(int i=1; i<score.size(); i++) {
-        if(M == score[i]) answer.push_back(i);
-    }
-   
     return answer;
 }
