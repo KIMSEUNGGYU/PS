@@ -3,6 +3,7 @@
 using namespace std; 
 
 int dp[1001][1001]; // 정사각형 길이
+
 int solution(vector<vector<int>> board) {
     int answer = 0;
     int xSize = board.size();
@@ -19,6 +20,9 @@ int solution(vector<vector<int>> board) {
             }
         }
     }
+    // 행이 2이상인 경우 dp 를 이용해서 만들 수 있는 정사각형 크기 저장
+	// 1인 값이 있을때만 사각형이 이어지므로 
+	// 좌, 좌상, 상단에 있는 값을 고려해서 정사각형의 길이를 알 수 있음 
     else {
         for(int i=1; i<board.size(); i++) {
             for(int j=1; j<board[i].size(); j++) {
@@ -30,7 +34,7 @@ int solution(vector<vector<int>> board) {
             }
         }
     }
-
+    
     answer = max*max;
     
     return answer;
