@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-using namespace std;
 
 // 각 수포자 찍는 패턴 저장 
 vector<int> supo1 = {1, 2, 3, 4, 5};
@@ -29,7 +28,7 @@ vector<int> solution(vector<int> answers) {
     
     // 제일 많이 맞는 사람 찾기 및 중복될 경우 오름찬순으로 저장
     for(int i=1; i<score.size(); i++) {
-        if(M == score[i]) answer.push_back(i);
+        if(M == score[i]) answer.push_back(i+1);
     }
    
     return answer;
