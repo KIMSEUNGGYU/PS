@@ -24,8 +24,8 @@ int solution(vector<int> people, int limit) {
         if(flag == false) {
             cnt++;
         }
-        
     }
+    
     answer = cnt;
     return answer;
 }
