@@ -1,31 +1,31 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 int solution(vector<int> people, int limit) {
     int answer = 0;
-    int size = people.size();
-    vector<int> check(size);
-    int cnt = 0;
-    bool flag = false;
     
     sort(people.begin(), people.end());
-    for(int i=0; i<people.size(); i++) {
-        flag = false;
-        
-        if(check[i] == 1) continue;
-        for(int j=size-1; j>i; j--) {
-            if(people[i]+people[j] <= limit && check[i] == 0 && check[j]==0) {
-                cnt++;
-                check[i] = 1;
-                check[j] = 1;
-                flag = true;
-            }
+    
+    int start = 0;
+    int j;
+    
+    // 맨 앞에서부터 맨 뒤에서부터 더해서 limit 보다 작은지 비교
+    // 만약 limit 보다 크면 맨 뒤값은 무조건 혼자 처리 밖에 못함 (그래서 +1)
+    // 그렇지 않으면 앞과 뒤를 더할 수있으므로 +1 하고 start 도 +1 해줌
+    for(j=people.size()-1; j>start; j--) {
+        if(people[start] + people[j] <= limit) {
+            answer++;
+            start++;
         }
-        if(flag == false) {
-            cnt++;
+        else {
+            answer++;
         }
     }
     
-    answer = cnt;
+    // 마지막 하나만 남은 경우? +1
+    if(start == j) answer++;
+    
+    
     return answer;
 }
