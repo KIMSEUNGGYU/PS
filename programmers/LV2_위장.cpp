@@ -1,4 +1,5 @@
-// https://kimseunggyu.tistory.com/16 설명
+// https://kimseunggyu.tistory.com/16 
+// 설명
 
 #include <bits/stdc++.h>
 using namespace std;
