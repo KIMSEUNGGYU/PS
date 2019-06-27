@@ -1,14 +1,4 @@
-/*
-조합의 경우의 수
-
-각 카테고리 별 경우의 수의 곱 - 1 
-
-예를 들어
-얼굴 2개 (a, b)
-상의 2개 (C, D) 가 있을때
-(2+1) * (2+1) - 1 로 8이 답
-여기서 +1 를 하는 이유는 해당 경우를 포함하지 않는 경우
-*/
+// https://kimseunggyu.tistory.com/16 설명
 
 #include <bits/stdc++.h>
 using namespace std;
