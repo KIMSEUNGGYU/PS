@@ -6,14 +6,14 @@ string solution(string s) {
     string token;
     vector<long long> numbers;
     
-    // 문자열 분리 후 정수형으로 변환
+    // 문자열 분리 후 정수형으로 변환 
     for(stringstream sts(s); (sts >> token);) {
         numbers.push_back(stoi(token));
     }
     
     int size = numbers.size();
     
-    // 최소 최대값 찾기
+    // 최소 최대값 찾기   
     int m = numbers[0];
     int M = numbers[0];
     for(int i=1; i<size; i++) {
