@@ -6,7 +6,7 @@ int main() {
 	int n;
 	scanf("%d", &n);
 	
-	// n-1 행 부터 한 줄씩 줄이면서 (n-1 ~ 0) 배열에 alphabet 값 넣기
+	// n-1 행 부터 한 줄씩 줄이면서 (n-1 ~ 1) 배열에 alphabet 값 넣기
 	// alphabet 이 'Z'를 넣어가면 alphabet을 'A' 로 치환
 	char alpha = 'A';
 	for(int i=n; i>0; i--) {
