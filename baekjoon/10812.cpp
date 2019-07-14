@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 const int MAX = 110;
 
