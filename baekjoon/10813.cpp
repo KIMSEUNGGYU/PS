@@ -19,9 +19,7 @@ int main() {
 		swap(*(basket.begin()+a-1), *(basket.begin()+b-1));
 	}
 
-	for(auto x:basket) {
-		cout << x << " ";
-	}
+	for(auto x:basket) cout << x << " ";
 
 	return 0;
 }
