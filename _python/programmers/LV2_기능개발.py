@@ -20,3 +20,33 @@ def solution(progresses, speeds):
             answer.append(count)
         progresses = _sum(progresses, speeds)
     return answer
+
+
+'''
+[다른 풀이]
+def solution(progresses, speeds):
+    answer = []
+    days = [0 for i in range(len(progresses))]
+    for i in range(len(progresses)):
+        day = 0
+        while progresses[i] < 100:
+            progresses[i] += speeds[i]
+            day += 1
+        days[i] = day
+    
+    _max = days[0]
+    cnt = 0
+    while len(days):
+        if _max >= days[0]:
+            cnt += 1
+        else:
+            answer.append(cnt)
+            cnt = 1
+            _max = days[0]
+        days.pop(0)
+    
+    answer.append(cnt)
+    return answer
+
+'''
+
