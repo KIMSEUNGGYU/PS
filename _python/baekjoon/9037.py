@@ -18,7 +18,6 @@ def teacher(N, candy):
         candy[idx] += tmp_lst[idx]
     return candy
 
-
 def process():
     N, candy = int(input()), list(map(int, input().split()))
     cnt = 0
