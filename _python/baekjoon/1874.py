@@ -14,7 +14,7 @@ for i in range(1, n+1):     # 데이터 개수만큼 반복
     if stack[-1] == data:   # 스택의 최상위 원소가 데이터와 같을 때 출략
         stack.pop()
         result.append('-')
-    else:                   # 불가능한 경
+    else:                   # 불가능한 경우
         print('NO')
         exit(0)
 
