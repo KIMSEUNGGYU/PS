@@ -89,10 +89,10 @@ def open_hashing():
     # save_data("Gyu", "4")       # 4 # <- 중복되서 키가 4인 값이 변경됨.
 
     print("OPEN HASING HASH TABLE")
-    print('read:', read_data("Dave"))
-    print('read:', read_data("Andy"))
-    print('read:', read_data("gyu"))
-    print('read:', read_data("Not Founded"))
+    print('read Dave:', read_data("Dave"))
+    print('read gyuAndy:', read_data("Andy"))
+    print('read gyu:', read_data("gyu"))
+    print('read Not Founded:', read_data("Not Founded"))
     print('hash_table:', hash_table)
     print("")
 
@@ -148,10 +148,10 @@ def close_hashing():
     save_data("Gyu", "4")       # 4 # <- 중복되서 키가 4인 값이 변경됨.
 
     print("CLOSE HASING HASH TABLE")
-    print('read:', read_data("Dave"))
-    print('read:', read_data("Andy"))
-    print('read:', read_data("gyu"))
-    print('read:', read_data("Not Founded"))
+    print('read Dave:', read_data("Dave"))
+    print('read gyuAndy:', read_data("Andy"))
+    print('read gyu:', read_data("gyu"))
+    print('read Not Founded:', read_data("Not Founded"))
     print('hash_table:', hash_table)
     print("")
 
