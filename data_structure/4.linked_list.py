@@ -93,6 +93,10 @@ def test_linked_list():
     node5 = linked_list.search_node(5)
     print(node5 and node5.data)
 
+    print("링크드 리스트 100 데이터 찾기")
+    node100 = linked_list.search_node(100)
+    print(node100 and node100.data)
+
 
 # test_node()               # 1
 # test_linked_list()        # 2
