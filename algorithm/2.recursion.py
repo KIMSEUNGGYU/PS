@@ -1,4 +1,5 @@
 def factorial(num):
+    # num! 구하기
     if num <= 1:
         return num
 
@@ -6,7 +7,7 @@ def factorial(num):
 
 
 def multiple(num):
-    # 1 ~ num 까지의 곱셈 구하기 
+    # 1 ~ num 까지의 곱셈 구하기
     if num <= 1:
         return 1
 
@@ -14,6 +15,7 @@ def multiple(num):
 
 
 def sum_list(data):
+    # 배열안에 있는 모든 수의 합 구하기
     if len(data) <= 1:
         return data[0]
 
@@ -21,6 +23,7 @@ def sum_list(data):
 
 
 def palindrome(str):
+    # 회문 인지 판단하기
     if len(str) <= 1:
         return True
     elif str[0] == str[-1]:
@@ -55,6 +58,13 @@ def func(num):
         return 4
     else:
         return func(num-1) + func(num-2) + func(num-3)
+
+def fibonacci(num):
+    # 피보나치 수열 구하기
+    if num <= 1:
+        return num
+    else:
+        return fibonacci(num-1) + fibonacci(num-2)
 
 def test_factorial():
     print("=== factorial ===")
@@ -95,10 +105,14 @@ def test_number_of_ways():
     print("5 number of ways:", func(5))
     print("4 number of ways:", func(4))
 
+def test_fibonacci():
+    print("=== fibonacci ===")
+    print("4 fibonacci:", fibonacci(4))
 
 # test_factorial()
 # test_multiple()
 # test_sum_list()
 # test_palindrome()
 # test_make_one()
-test_number_of_ways()
+# test_number_of_ways()
+test_fibonacci()

@@ -17,6 +17,10 @@ def make_one():
 def func():
     pass
 
+def fibonacci():
+    pass
+
+
 def test_factorial():
     print("=== factorial ===")
     print("5!:", factorial(10))
@@ -56,6 +60,9 @@ def test_number_of_ways():
     print("5 number of ways:", func(5))
     print("4 number of ways:", func(4))
 
+def test_fibonacci():
+    print("=== fibonacci ===")
+    print("4 fibonacci:", fibonacci(4))
 
 # test_factorial()
 # test_multiple()
@@ -63,3 +70,4 @@ def test_number_of_ways():
 # test_palindrome()
 # test_make_one()
 # test_number_of_ways()
+test_fibonacci()
