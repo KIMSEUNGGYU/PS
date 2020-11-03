@@ -19,9 +19,9 @@ def bubble_sort(data):
 # 삽입 정렬
 def insert_sort(data):
     for index in range(len(data)-1):
-        for index2 in range(index + 1, 0, -1):
+        for index2 in range(index + 1, 0, -1):  # index+1 은 기준의 앞데이터 부터 1번째 데이터까지 비교
             # 이전 데이터가 더 크면 swap
-            if data[index2] < data[index2 - 1]:
+            if data[index2] < data[index2 - 1]: 
                 data[index2], data[index2-1] = data[index2-1], data[index2]
             else:   # 이전 데이터가 작으면 (이미 정렬되어 있는 경우)
                  break
@@ -44,18 +44,20 @@ def select_sort(data):
 
 def test_bubble_sort():
     data_list = random.sample(range(100), 50)
-    print("Data:", data_list)
-    print("bubble sort:", bubble_sort(data_list))
+    print("Raw Data:", data_list)
+    print("Bubble Sort:", bubble_sort(data_list))
 
 def test_insert_sort():
     data_list = random.sample(range(100), 50)
-    print("Data:", data_list)
+    print("Raw Data:", data_list)
     print("insert sort:", insert_sort(data_list))
 
 def test_select_sort():
     data_list = random.sample(range(100), 50)
-    print("Data:", data_list)
-    print("select sort:", select_sort(data_list))
+    print("Raw Data:")
+    print(data_list)
+    print("Select Sort:")
+    print(select_sort(data_list))
 
 
 # test_bubble_sort()        # 버블 정렬 테스트
