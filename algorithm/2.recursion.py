@@ -33,7 +33,7 @@ def palindrome(str):
 
 def make_one(num):
     # num 이 홀수이면, 3 * num + 1 을하고
-    # num 이 짝수이면, 2 * num 을 해서
+    # num 이 짝수이면, num // 2 을 해서
     # "최종적으로 1 만들기"
     print("num:", num)
 
