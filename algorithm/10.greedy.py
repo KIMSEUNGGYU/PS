@@ -37,7 +37,7 @@ def test_coin_problem():
 
     print("=== coin problem ===")
     coin_list = [1, 50, 100, 500]
-    print("4720:", min_coin_count(4720, coin_list))
+    print("4720:", min_coin_count(4720, coin_list))         # 31
     print()
 
 def test_fkp():
@@ -49,7 +49,7 @@ def test_fkp():
 
     print("=== FKP (부분 배낭 문제) ===")
     data_list = [(10, 10), (15, 12), (20, 10), (25, 8), (30, 5)]
-    print("30:", get_max_value(30, data_list))
+    print("30:", get_max_value(30, data_list))              # 24.5
     print()
 
 
