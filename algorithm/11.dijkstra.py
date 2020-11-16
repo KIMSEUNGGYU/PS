@@ -8,10 +8,6 @@ def dijstra(graph, start):
     queue = []
     heapq.heappush(queue, [distances[start], start])        # 첫번째는 시작노드의 거리(0), 노드("A") 
 
-
-    # current_distance, current_node = heapq.heappop(queue)       # distance(0), current_node("A")
-    # print(current_distance, current_node)
-
     while queue:    # 우선 순위 큐에 데이터가 없으면 모두 탐색했다고 판단 
         current_distance, current_node = heapq.heappop(queue)       # distance(0), current_node("A")
 
