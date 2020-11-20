@@ -12,7 +12,7 @@ def dijstra(graph, start):
         current_distance, current_node = heapq.heappop(queue)       # distance(0), current_node("A")
 
         ## skip 하는 부분 (우선순위 큐 특성상 뒤로 가면 갈수록 할필요 없는 데이터들이 존재함.)
-        if distances[current_node] < current_distance:              # 저장되어 있는 distance 가 우선순위 큐에서 나온 노드의 거리보다 작으면 수행 업데이트 과정 skip
+        if distances[current_node] < current_distance:              # 저장되어 있는 distance 가 우선순위 큐에서 나온 노드의 거리보다 작으면 수행 업데이트 과정 skip, 최종 업데이트된 데이터가 우선순위큐에서 꺼낸 데이터보다 작으면 skip
             continue
 
         ## 업데이트가 필요한지 안필요한지 판단후 그에 따른 역할 수행
