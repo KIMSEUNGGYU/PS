@@ -14,3 +14,4 @@ elif descending:
     print("descending")
 else:
     print("mixed")
+    
