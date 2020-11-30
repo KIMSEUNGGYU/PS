@@ -17,3 +17,4 @@ for _ in range(test_case):
                 queue.pop(0)
         else:
             queue.append(queue.pop(0))
+
